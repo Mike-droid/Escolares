@@ -12,4 +12,5 @@ Route::resource('personales', 'App\Http\Controllers\personalesController');
 Route::resource('carreras', 'App\Http\Controllers\carrerasController');
 Route::resource('reticulas', 'App\Http\Controllers\reticulasController');
 Route::resource('materias', 'App\Http\Controllers\materiasController');
-Route::resource('periodos', 'periodosController');
+Route::resource('periodos', 'App\Http\Controllers\periodosController');
+Route::resource('grupos', 'App\Http\Controllers\gruposController');
