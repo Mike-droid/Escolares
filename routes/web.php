@@ -8,4 +8,6 @@ Route::get('/', function () {
 
 Route::resource('alumnos', 'App\Http\Controllers\alumnosController');
 Route::resource('departamentos', 'App\Http\Controllers\departamentosController');
-Route::resource('personales', 'personalesController');
+Route::resource('personales', 'App\Http\Controllers\personalesController');
+Route::resource('carreras', 'App\Http\Controllers\carrerasController');
+Route::resource('reticulas', 'App\Http\Controllers\reticulasController');
