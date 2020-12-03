@@ -7,3 +7,4 @@ Route::get('/', function () {
 });
 
 Route::resource('alumnos', 'App\Http\Controllers\alumnosController');
+Route::resource('departamentos', 'App\Http\Controllers\departamentosController');
