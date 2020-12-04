@@ -10,12 +10,12 @@
                     <div class="card-header">Periodos</div>
                     <div class="card-body">
                         <a href="{{ url('/periodos/create') }}" class="btn btn-success btn-sm" title="Add New periodo">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            <i class="fa fa-plus" aria-hidden="true"></i> Agregar nuevo
                         </a>
 
                         <form method="GET" action="{{ url('/periodos') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">
+                                <input type="text" class="form-control" name="search" placeholder="Buscar" value="{{ request('search') }}">
                                 <span class="input-group-append">
                                     <button class="btn btn-secondary" type="submit">
                                         <i class="fa fa-search"></i>
@@ -30,14 +30,18 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>FechaInicio</th><th>FechaFinal</th><th>Actions</th>
+                                        <th>#</th>
+                                        <th>Fecha de inicio</th>
+                                        <th>Fecha final</th>
+                                        <th>Opciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($periodos as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->FechaInicio }}</td><td>{{ $item->FechaFinal }}</td>
+                                        <td>{{ $item->FechaInicio }}</td>
+                                        <td>{{ $item->FechaFinal }}</td>
                                         <td>
                                             <a href="{{ url('/periodos/' . $item->id) }}" title="View periodo"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/periodos/' . $item->id . '/edit') }}" title="Edit periodo"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

@@ -7,16 +7,16 @@
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">grupo {{ $grupo->id }}</div>
+                    <div class="card-header">Grupo {{ $grupo->id }}</div>
                     <div class="card-body">
 
-                        <a href="{{ url('/grupos') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <a href="{{ url('/grupos/' . $grupo->id . '/edit') }}" title="Edit grupo"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                        <a href="{{ url('/grupos') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Regresar</button></a>
+                        <a href="{{ url('/grupos/' . $grupo->id . '/edit') }}" title="Edit grupo"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>
 
                         <form method="POST" action="{{ url('grupos' . '/' . $grupo->id) }}" accept-charset="UTF-8" style="display:inline">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-danger btn-sm" title="Delete grupo" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                            <button type="submit" class="btn btn-danger btn-sm" title="Delete grupo" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Borrar</button>
                         </form>
                         <br/>
                         <br/>
@@ -27,7 +27,25 @@
                                     <tr>
                                         <th>ID</th><td>{{ $grupo->id }}</td>
                                     </tr>
-                                    <tr><th> NombreGrupo </th><td> {{ $grupo->NombreGrupo }} </td></tr><tr><th> IdMateriaInterno </th><td> {{ $grupo->idMateriaInterno }} </td></tr><tr><th> CapacidadMaxima </th><td> {{ $grupo->capacidadMaxima }} </td></tr>
+                                    <tr><th> Nombre grupo </th>
+                                        <td> {{ $grupo->NombreGrupo }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> ID Materia Interno </th>
+                                        <td> {{ $grupo->idMateriaInterno }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> Capacidad máxima </th>
+                                        <td> {{ $grupo->capacidadMaxima }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> RFC Docente </th>
+                                        <td> {{ $grupo->rfcDocente }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> ID periodo </th>
+                                        <td> {{ $grupo->idPeriodo }} </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

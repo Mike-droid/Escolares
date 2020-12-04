@@ -7,9 +7,9 @@
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Edit materia #{{ $materia->id }}</div>
+                    <div class="card-header">Editar materia #{{ $materia->id }}</div>
                     <div class="card-body">
-                        <a href="{{ url('/materias') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/materias') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Regresar</button></a>
                         <br />
                         <br />
 

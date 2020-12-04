@@ -1,3 +1,7 @@
+<?php
+    use App\Models\departamento;
+?>
+
 <div class="form-group {{ $errors->has('nombreCarrera') ? 'has-error' : ''}}">
     <label for="nombreCarrera" class="control-label">{{ 'Nombre carrera' }}</label>
     <input class="form-control" name="nombreCarrera" type="text" id="nombreCarrera" value="{{ isset($carrera->nombreCarrera) ? $carrera->nombreCarrera : ''}}" >
@@ -10,8 +14,12 @@
 </div>
 <div class="form-group {{ $errors->has('idDepto') ? 'has-error' : ''}}">
     <label for="idDepto" class="control-label">{{ 'ID Departamento' }}</label>
-    <input class="form-control" name="idDepto" type="number" id="idDepto" value="{{ isset($carrera->idDepto) ? $carrera->idDepto : ''}}" >
-    {!! $errors->first('idDepto', '<p class="help-block">:message</p>') !!}
+    <select name="idDepto" id="idDepto" class="form-control">
+        {{$departamento = departamento::all()}}
+        @foreach ($departamento as $d)
+            <option value="{{$d->id}}">{{$d->Nombre}}</option>
+        @endforeach
+    </select>
 </div>
 
 

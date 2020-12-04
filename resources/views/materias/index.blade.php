@@ -10,12 +10,12 @@
                     <div class="card-header">Materias</div>
                     <div class="card-body">
                         <a href="{{ url('/materias/create') }}" class="btn btn-success btn-sm" title="Add New materia">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            <i class="fa fa-plus" aria-hidden="true"></i> Agregar nueva
                         </a>
 
                         <form method="GET" action="{{ url('/materias') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">
+                                <input type="text" class="form-control" name="search" placeholder="Buscar" value="{{ request('search') }}">
                                 <span class="input-group-append">
                                     <button class="btn btn-secondary" type="submit">
                                         <i class="fa fa-search"></i>
@@ -30,22 +30,32 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>NombreMateria</th><th>IdMateriaInterno</th><th>IdMateriaOficial</th><th>Actions</th>
+                                        <th>#</th>
+                                        <th>Nombre materia</th>
+                                        <th>ID materia interno</th>
+                                        <th>ID materia oficial</th>
+                                        <th>Créditos</th>
+                                        <th>ID retícula</th>
+                                        <th>Opciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($materias as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->NombreMateria }}</td><td>{{ $item->idMateriaInterno }}</td><td>{{ $item->idMateriaOficial }}</td>
+                                        <td>{{ $item->NombreMateria }}</td>
+                                        <td>{{ $item->idMateriaInterno }}</td>
+                                        <td>{{ $item->idMateriaOficial }}</td>
+                                        <td>{{ $item->creditos }}</td>
+                                        <td>{{ $item->idReticula }}</td>
                                         <td>
-                                            <a href="{{ url('/materias/' . $item->id) }}" title="View materia"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/materias/' . $item->id . '/edit') }}" title="Edit materia"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/materias/' . $item->id) }}" title="View materia"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver</button></a>
+                                            <a href="{{ url('/materias/' . $item->id . '/edit') }}" title="Edit materia"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>
 
                                             <form method="POST" action="{{ url('/materias' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete materia" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete materia" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Borrar</button>
                                             </form>
                                         </td>
                                     </tr>
