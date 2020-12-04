@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreatePersonalesTable extends Migration
 {
@@ -19,9 +20,13 @@ class CreatePersonalesTable extends Migration
             $table->string('Nombre')->nullable();
             $table->string('apellidoPaterno')->nullable();
             $table->string('apellidoMaterno')->nullable();
-            $table->integer('ipDepto')->nullable();
-            $table->foreign('ipDepto')->references('id')->on('departamentos')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('ipDepto')->unsigned();
             });
+
+        Schema::table('personales', function ($table)
+        {
+            $table->foreign('ipDepto')->references('id')->on('departamentos')->onDelete('cascade')->onUpdate('cascade');
+        });
     }
 
     /**

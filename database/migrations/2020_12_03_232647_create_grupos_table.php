@@ -18,11 +18,14 @@ class CreateGruposTable extends Migration
             $table->string('NombreGrupo')->nullable();
             $table->string('idMateriaInterno')->nullable();
             $table->integer('capacidadMaxima')->nullable();
-            $table->integer('rfcDocente')->nullable();
-            $table->foreign('rfcDocente')->references('id')->on('personales')->onDelete('cascade;')->onUpdate('cascade;');
-            $table->integer('idPeriodo')->nullable();
-            $table->foreign('idPeriodo')->references('id')->on('periodos')->onDelete('cascade;')->onUpdate('cascade;');
+            $table->integer('rfcDocente')->unsigned();
+            $table->integer('idPeriodo')->unsigned();
             });
+
+        Schema::table('grupos',function($table){
+            $table->foreign('rfcDocente')->references('id')->on('personales')->onDelete('cascade;')->onUpdate('cascade;');
+            $table->foreign('idPeriodo')->references('id')->on('periodos')->onDelete('cascade;')->onUpdate('cascade;');
+        });
     }
 
     /**

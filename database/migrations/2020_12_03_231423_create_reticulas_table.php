@@ -17,9 +17,12 @@ class CreateReticulasTable extends Migration
             $table->timestamps();
             $table->string('DescripcionReticula')->nullable();
             $table->date('FechaDeVigor')->nullable();
-            $table->integer('idCarrera')->nullable();
-            $table->foreign('idCarrera')->references('id')->on('carreras')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('idCarrera')->unsigned();
             });
+
+        Schema::table('reticulas',function($table){
+            $table->foreign('idCarrera')->references('id')->on('carreras')->onDelete('cascade')->onUpdate('cascade');
+        });
     }
 
     /**

@@ -19,9 +19,12 @@ class CreateMateriasTable extends Migration
             $table->string('idMateriaInterno')->nullable();
             $table->string('idMateriaOficial')->nullable();
             $table->integer('creditos')->nullable();
-            $table->integer('idReticula')->nullable();
-            $table->foreign('idReticula')->references('id')->on('reticulas')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('idReticula')->unsigned();
             });
+
+        Schema::table('materias',function($table){
+            $table->foreign('idReticula')->references('id')->on('reticulas')->onDelete('cascade')->onUpdate('cascade');
+        });
     }
 
     /**

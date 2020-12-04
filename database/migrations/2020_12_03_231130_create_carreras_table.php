@@ -17,9 +17,12 @@ class CreateCarrerasTable extends Migration
             $table->timestamps();
             $table->string('nombreCarrera')->nullable();
             $table->string('nombreAbreviado')->nullable();
-            $table->integer('idDepto')->nullable();
-            $table->foreign('idDepto')->references('id')->on('departamentos')->onDelete('cascade;')->onUpdate('cascade;');
+            $table->integer('idDepto')->unsigned();
             });
+
+        Schema::table('carreras',function($table){
+            $table->foreign('idDepto')->references('id')->on('departamentos')->onDelete('cascade;')->onUpdate('cascade;');
+        });
     }
 
     /**

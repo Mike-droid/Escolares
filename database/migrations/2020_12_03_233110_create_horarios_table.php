@@ -18,9 +18,12 @@ class CreateHorariosTable extends Migration
             $table->integer('Semestre')->nullable();
             $table->string('noCtrl')->nullable();
             $table->string('numeroOficioProrroga')->nullable();
-            $table->integer('idPeriodo')->nullable();
-            $table->foreign('idPeriodo')->references('id')->on('periodos')->onDelete('cascade;')->onUpdate('cascade;');
+            $table->integer('idPeriodo')->unsigned();
             });
+
+        Schema::table('horarios',function($table){
+            $table->foreign('idPeriodo')->references('id')->on('periodos')->onDelete('cascade;')->onUpdate('cascade;');
+        });
     }
 
     /**
