@@ -1,5 +1,5 @@
 <div class="form-group {{ $errors->has('noCtrl') ? 'has-error' : ''}}">
-    <label for="noCtrl" class="control-label">{{ 'Noctrl' }}</label>
+    <label for="noCtrl" class="control-label">{{ 'Número de control' }}</label>
     <input class="form-control" name="noCtrl" type="text" id="noCtrl" value="{{ isset($alumno->noCtrl) ? $alumno->noCtrl : ''}}" >
     {!! $errors->first('noCtrl', '<p class="help-block">:message</p>') !!}
 </div>
@@ -9,19 +9,19 @@
     {!! $errors->first('Nombre', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('apellidoPaterno') ? 'has-error' : ''}}">
-    <label for="apellidoPaterno" class="control-label">{{ 'Apellidopaterno' }}</label>
+    <label for="apellidoPaterno" class="control-label">{{ 'Apellido paterno' }}</label>
     <input class="form-control" name="apellidoPaterno" type="text" id="apellidoPaterno" value="{{ isset($alumno->apellidoPaterno) ? $alumno->apellidoPaterno : ''}}" >
     {!! $errors->first('apellidoPaterno', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('apellidoMaterno') ? 'has-error' : ''}}">
-    <label for="apellidoMaterno" class="control-label">{{ 'Apellidomaterno' }}</label>
+    <label for="apellidoMaterno" class="control-label">{{ 'Apellido materno' }}</label>
     <input class="form-control" name="apellidoMaterno" type="text" id="apellidoMaterno" value="{{ isset($alumno->apellidoMaterno) ? $alumno->apellidoMaterno : ''}}" >
     {!! $errors->first('apellidoMaterno', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('sexo') ? 'has-error' : ''}}">
     <label for="sexo" class="control-label">{{ 'Sexo' }}</label>
     <select name="sexo" class="form-control" id="sexo" >
-    @foreach (json_decode('{masculino:Masculino,femenino:Femenino}', true) as $optionKey => $optionValue)
+    @foreach (json_decode('{"masculino":"Masculino","femenino":"Femenino"}', true) as $optionKey => $optionValue)
         <option value="{{ $optionKey }}" {{ (isset($alumno->sexo) && $alumno->sexo == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
     @endforeach
 </select>
@@ -48,9 +48,9 @@
     {!! $errors->first('telefono', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('idiomaIngles') ? 'has-error' : ''}}">
-    <label for="idiomaIngles" class="control-label">{{ 'Idiomaingles' }}</label>
+    <label for="idiomaIngles" class="control-label">{{ 'Idioma Inglés' }}</label>
     <div class="radio">
-    <label><input name="idiomaIngles" type="radio" value="1" {{ (isset($alumno) && 1 == $alumno->idiomaIngles) ? 'checked' : '' }}> Yes</label>
+    <label><input name="idiomaIngles" type="radio" value="1" {{ (isset($alumno) && 1 == $alumno->idiomaIngles) ? 'checked' : '' }}> Sí</label>
 </div>
 <div class="radio">
     <label><input name="idiomaIngles" type="radio" value="0" @if (isset($alumno)) {{ (0 == $alumno->idiomaIngles) ? 'checked' : '' }} @else {{ 'checked' }} @endif> No</label>
@@ -58,9 +58,9 @@
     {!! $errors->first('idiomaIngles', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('idiomaFrances') ? 'has-error' : ''}}">
-    <label for="idiomaFrances" class="control-label">{{ 'Idiomafrances' }}</label>
+    <label for="idiomaFrances" class="control-label">{{ 'Idioma Francés' }}</label>
     <div class="radio">
-    <label><input name="idiomaFrances" type="radio" value="1" {{ (isset($alumno) && 1 == $alumno->idiomaFrances) ? 'checked' : '' }}> Yes</label>
+    <label><input name="idiomaFrances" type="radio" value="1" {{ (isset($alumno) && 1 == $alumno->idiomaFrances) ? 'checked' : '' }}> Sí</label>
 </div>
 <div class="radio">
     <label><input name="idiomaFrances" type="radio" value="0" @if (isset($alumno)) {{ (0 == $alumno->idiomaFrances) ? 'checked' : '' }} @else {{ 'checked' }} @endif> No</label>
@@ -68,9 +68,9 @@
     {!! $errors->first('idiomaFrances', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('idiomaEspanol') ? 'has-error' : ''}}">
-    <label for="idiomaEspanol" class="control-label">{{ 'Idiomaespanol' }}</label>
+    <label for="idiomaEspanol" class="control-label">{{ 'Idioma Español' }}</label>
     <div class="radio">
-    <label><input name="idiomaEspanol" type="radio" value="1" {{ (isset($alumno) && 1 == $alumno->idiomaEspanol) ? 'checked' : '' }}> Yes</label>
+    <label><input name="idiomaEspanol" type="radio" value="1" {{ (isset($alumno) && 1 == $alumno->idiomaEspanol) ? 'checked' : '' }}> Sí</label>
 </div>
 <div class="radio">
     <label><input name="idiomaEspanol" type="radio" value="0" @if (isset($alumno)) {{ (0 == $alumno->idiomaEspanol) ? 'checked' : '' }} @else {{ 'checked' }} @endif> No</label>
@@ -80,5 +80,5 @@
 
 
 <div class="form-group">
-    <input class="btn btn-primary" type="submit" value="{{ $formMode === 'edit' ? 'Update' : 'Create' }}">
+    <input class="btn btn-primary" type="submit" value="{{ $formMode === 'edit' ? 'Actualizar' : 'Crear' }}">
 </div>
