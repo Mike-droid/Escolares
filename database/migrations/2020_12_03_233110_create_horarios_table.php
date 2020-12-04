@@ -22,7 +22,7 @@ class CreateHorariosTable extends Migration
             });
 
         Schema::table('horarios',function($table){
-            $table->foreign('idPeriodo')->references('id')->on('periodos')->onDelete('cascade;')->onUpdate('cascade;');
+            $table->foreign('idPeriodo')->references('id')->on('periodos')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

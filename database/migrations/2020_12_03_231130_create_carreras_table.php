@@ -21,7 +21,7 @@ class CreateCarrerasTable extends Migration
             });
 
         Schema::table('carreras',function($table){
-            $table->foreign('idDepto')->references('id')->on('departamentos')->onDelete('cascade;')->onUpdate('cascade;');
+            $table->foreign('idDepto')->references('id')->on('departamentos')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

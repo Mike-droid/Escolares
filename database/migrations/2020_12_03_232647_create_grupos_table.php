@@ -23,8 +23,8 @@ class CreateGruposTable extends Migration
             });
 
         Schema::table('grupos',function($table){
-            $table->foreign('rfcDocente')->references('id')->on('personales')->onDelete('cascade;')->onUpdate('cascade;');
-            $table->foreign('idPeriodo')->references('id')->on('periodos')->onDelete('cascade;')->onUpdate('cascade;');
+            $table->foreign('rfcDocente')->references('id')->on('personales')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('idPeriodo')->references('id')->on('periodos')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
