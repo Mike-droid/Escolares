@@ -27,5 +27,5 @@ class horario extends Model
      */
     protected $fillable = ['Semestre', 'noCtrl', 'numeroOficioProrroga', 'idPeriodo'];
 
-    
+
 }

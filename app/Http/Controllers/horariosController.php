@@ -52,12 +52,20 @@ class horariosController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $campos = [
+            'Semestre' => 'required|int',
+            'noCtrl' => 'required|string|max:8',
+            'numeroOficioProrroga' => 'required|string|max:10',
+            'idPeriodo' => 'required|int'
+        ];
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         horario::create($requestData);
 
-        return redirect('horarios')->with('flash_message', 'horario added!');
+        return redirect('horarios')->with('flash_message', 'Horario agregado');
     }
 
     /**
@@ -98,13 +106,21 @@ class horariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $campos = [
+            'Semestre' => 'required|int',
+            'noCtrl' => 'required|string|max:8',
+            'numeroOficioProrroga' => 'required|string|max:10',
+            'idPeriodo' => 'required|int'
+        ];
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         $horario = horario::findOrFail($id);
         $horario->update($requestData);
 
-        return redirect('horarios')->with('flash_message', 'horario updated!');
+        return redirect('horarios')->with('flash_message', 'Horario actualizado');
     }
 
     /**
@@ -118,6 +134,6 @@ class horariosController extends Controller
     {
         horario::destroy($id);
 
-        return redirect('horarios')->with('flash_message', 'horario deleted!');
+        return redirect('horarios')->with('flash_message', 'Horario eliminado');
     }
 }
