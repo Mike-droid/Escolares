@@ -60,12 +60,22 @@ class alumnosController extends Controller
      */
     public function store(Request $request)
     {
-        
+
+        $campos = [
+            'noCtrl' => 'required|string|max:8',
+            'Nombre' => 'required|string|max:50',
+            'apellidoPaterno' => 'required|string|max:50',
+            'apellidoMaterno' => 'required|string|max:50'
+        ];
+
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         alumno::create($requestData);
 
-        return redirect('alumnos')->with('flash_message', 'alumno added!');
+        return redirect('alumnos')->with('flash_message', 'Alumno agregado');
     }
 
     /**
@@ -106,13 +116,23 @@ class alumnosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
+        $campos = [
+            'noCtrl' => 'required|string|max:8',
+            'Nombre' => 'required|string|max:50',
+            'apellidoPaterno' => 'required|string|max:50',
+            'apellidoMaterno' => 'required|string|max:50'
+        ];
+
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         $alumno = alumno::findOrFail($id);
         $alumno->update($requestData);
 
-        return redirect('alumnos')->with('flash_message', 'alumno updated!');
+        return redirect('alumnos')->with('flash_message', 'Alumno actualizado');
     }
 
     /**
@@ -126,6 +146,6 @@ class alumnosController extends Controller
     {
         alumno::destroy($id);
 
-        return redirect('alumnos')->with('flash_message', 'alumno deleted!');
+        return redirect('alumnos')->with('flash_message', 'Alumno eliminado');
     }
 }

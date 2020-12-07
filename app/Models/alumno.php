@@ -27,5 +27,5 @@ class alumno extends Model
      */
     protected $fillable = ['noCtrl', 'Nombre', 'apellidoPaterno', 'apellidoMaterno', 'sexo', 'email', 'facebook', 'twitter', 'telefono', 'idiomaIngles', 'idiomaFrances', 'idiomaEspanol'];
 
-    
+
 }
