@@ -54,7 +54,7 @@ class carrerasController extends Controller
         $campos= [
             'nombreCarrera' => 'required|string|max:50',
             'nombreAbreviado' => 'required|string|max:6',
-            'idDepto' => 'required|integer'
+            'idDepto' => 'required|int'
         ];
 
         $mensaje = ["required"=>'El campo de :attribute es requerido'];
@@ -108,7 +108,7 @@ class carrerasController extends Controller
         $campos= [
             'nombreCarrera' => 'required|string|max:50',
             'nombreAbreviado' => 'required|string|max:6',
-            'idDepto' => 'required|integer'
+            'idDepto' => 'required|int'
         ];
 
         $mensaje = ["required"=>'El campo de :attribute es requerido'];

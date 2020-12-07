@@ -27,5 +27,5 @@ class grupo extends Model
      */
     protected $fillable = ['NombreGrupo', 'idMateriaInterno', 'capacidadMaxima', 'rfcDocente', 'idPeriodo'];
 
-    
+
 }

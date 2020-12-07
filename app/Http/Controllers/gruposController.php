@@ -53,12 +53,21 @@ class gruposController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $campos = [
+            'NombreGrupo' => 'required|string|max:20',
+            'idMateriaInterno' => 'required|string|max:15',
+            'capacidadMaxima' => 'required|int',
+            'rfcDocente' => 'required|int',
+            'idPeriodo' => 'required|int'
+        ];
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         grupo::create($requestData);
 
-        return redirect('grupos')->with('flash_message', 'grupo added!');
+        return redirect('grupos')->with('flash_message', 'Grupo agregado');
     }
 
     /**
@@ -99,13 +108,22 @@ class gruposController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $campos = [
+            'NombreGrupo' => 'required|string|max:20',
+            'idMateriaInterno' => 'required|string|max:15',
+            'capacidadMaxima' => 'required|int',
+            'rfcDocente' => 'required|int',
+            'idPeriodo' => 'required|int'
+        ];
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         $grupo = grupo::findOrFail($id);
         $grupo->update($requestData);
 
-        return redirect('grupos')->with('flash_message', 'grupo updated!');
+        return redirect('grupos')->with('flash_message', 'Grupo actulizado');
     }
 
     /**
@@ -119,6 +137,6 @@ class gruposController extends Controller
     {
         grupo::destroy($id);
 
-        return redirect('grupos')->with('flash_message', 'grupo deleted!');
+        return redirect('grupos')->with('flash_message', 'Grupo eliminado');
     }
 }
