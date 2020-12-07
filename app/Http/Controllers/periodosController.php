@@ -50,12 +50,18 @@ class periodosController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $campos = [
+            'FechaInicio' => 'required|date',
+            'FechaFinal' => 'required|date'
+        ];
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         periodo::create($requestData);
 
-        return redirect('periodos')->with('flash_message', 'periodo added!');
+        return redirect('periodos')->with('flash_message', 'Periodo agregado');
     }
 
     /**
@@ -96,13 +102,19 @@ class periodosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $campos = [
+            'FechaInicio' => 'required|date',
+            'FechaFinal' => 'required|date'
+        ];
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         $periodo = periodo::findOrFail($id);
         $periodo->update($requestData);
 
-        return redirect('periodos')->with('flash_message', 'periodo updated!');
+        return redirect('periodos')->with('flash_message', 'Periodo actualizado');
     }
 
     /**
@@ -116,6 +128,6 @@ class periodosController extends Controller
     {
         periodo::destroy($id);
 
-        return redirect('periodos')->with('flash_message', 'periodo deleted!');
+        return redirect('periodos')->with('flash_message', 'Periodo eliminado');
     }
 }

@@ -27,5 +27,5 @@ class periodo extends Model
      */
     protected $fillable = ['FechaInicio', 'FechaFinal'];
 
-    
+
 }
