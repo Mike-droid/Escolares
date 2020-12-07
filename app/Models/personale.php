@@ -27,5 +27,5 @@ class personale extends Model
      */
     protected $fillable = ['RFC', 'Nombre', 'apellidoPaterno', 'apellidoMaterno', 'ipDepto'];
 
-    
+
 }

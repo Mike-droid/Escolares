@@ -53,12 +53,21 @@ class personalesController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $campos = [
+            'RFC' => 'required|string|max:13',
+            'Nombre' => 'required|string|max:50',
+            'apellidoPaterno' => 'required|string|max:50',
+            'apellidoMaterno' => 'required|string|max:50',
+            'ipDepto' => 'required|int'
+        ];
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         personale::create($requestData);
 
-        return redirect('personales')->with('flash_message', 'personale added!');
+        return redirect('personales')->with('flash_message', 'Personal agregado');
     }
 
     /**
@@ -99,13 +108,22 @@ class personalesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $campos = [
+            'RFC' => 'required|string|max:13',
+            'Nombre' => 'required|string|max:50',
+            'apellidoPaterno' => 'required|string|max:50',
+            'apellidoMaterno' => 'required|string|max:50',
+            'ipDepto' => 'required|int'
+        ];
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         $personale = personale::findOrFail($id);
         $personale->update($requestData);
 
-        return redirect('personales')->with('flash_message', 'personale updated!');
+        return redirect('personales')->with('flash_message', 'Personal actualizado');
     }
 
     /**
@@ -119,6 +137,6 @@ class personalesController extends Controller
     {
         personale::destroy($id);
 
-        return redirect('personales')->with('flash_message', 'personale deleted!');
+        return redirect('personales')->with('flash_message', 'Personal eliminado');
     }
 }
