@@ -51,12 +51,19 @@ class reticulasController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $campos = [
+            'DescripcionReticula' => 'required|string|max:200',
+            'FechaDeVigor' => 'required|date',
+            'idCarrera' => 'required|int'
+        ];
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         reticula::create($requestData);
 
-        return redirect('reticulas')->with('flash_message', 'reticula added!');
+        return redirect('reticulas')->with('flash_message', 'Retícula agregada');
     }
 
     /**
@@ -97,13 +104,20 @@ class reticulasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $campos = [
+            'DescripcionReticula' => 'required|string|max:200',
+            'FechaDeVigor' => 'required|date',
+            'idCarrera' => 'required|int'
+        ];
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         $reticula = reticula::findOrFail($id);
         $reticula->update($requestData);
 
-        return redirect('reticulas')->with('flash_message', 'reticula updated!');
+        return redirect('reticulas')->with('flash_message', 'Retícula actualizada');
     }
 
     /**
@@ -117,6 +131,6 @@ class reticulasController extends Controller
     {
         reticula::destroy($id);
 
-        return redirect('reticulas')->with('flash_message', 'reticula deleted!');
+        return redirect('reticulas')->with('flash_message', 'Retícula eliminada');
     }
 }

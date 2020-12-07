@@ -27,5 +27,5 @@ class reticula extends Model
      */
     protected $fillable = ['DescripcionReticula', 'FechaDeVigor', 'idCarrera'];
 
-    
+
 }
