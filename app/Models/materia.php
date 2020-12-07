@@ -27,5 +27,5 @@ class materia extends Model
      */
     protected $fillable = ['NombreMateria', 'idMateriaInterno', 'idMateriaOficial', 'creditos', 'idReticula'];
 
-    
+
 }

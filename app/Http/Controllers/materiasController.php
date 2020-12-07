@@ -53,12 +53,21 @@ class materiasController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $campos = [
+            'NombreMateria' => 'required|string|max:50',
+            'idMateriaInterno' => 'required|string',
+            'idMateriaOficial' => 'required|string',
+            'creditos' => 'required|int',
+            'idReticula' => 'required|int'
+        ];
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         materia::create($requestData);
 
-        return redirect('materias')->with('flash_message', 'materia added!');
+        return redirect('materias')->with('flash_message', 'Materia agregada');
     }
 
     /**
@@ -99,13 +108,22 @@ class materiasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $campos = [
+            'NombreMateria' => 'required|string|max:50',
+            'idMateriaInterno' => 'required|string',
+            'idMateriaOficial' => 'required|string',
+            'creditos' => 'required|int',
+            'idReticula' => 'required|int'
+        ];
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         $materia = materia::findOrFail($id);
         $materia->update($requestData);
 
-        return redirect('materias')->with('flash_message', 'materia updated!');
+        return redirect('materias')->with('flash_message', 'Materia actualizada');
     }
 
     /**
@@ -119,6 +137,6 @@ class materiasController extends Controller
     {
         materia::destroy($id);
 
-        return redirect('materias')->with('flash_message', 'materia deleted!');
+        return redirect('materias')->with('flash_message', 'Materia eliminada');
     }
 }
