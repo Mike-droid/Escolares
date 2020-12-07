@@ -27,5 +27,5 @@ class carrera extends Model
      */
     protected $fillable = ['nombreCarrera', 'nombreAbreviado', 'idDepto'];
 
-    
+
 }

@@ -51,12 +51,20 @@ class carrerasController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $campos= [
+            'nombreCarrera' => 'required|string|max:50',
+            'nombreAbreviado' => 'required|string|max:6',
+            'idDepto' => 'required|integer'
+        ];
+
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         carrera::create($requestData);
 
-        return redirect('carreras')->with('flash_message', 'carrera added!');
+        return redirect('carreras')->with('flash_message', 'Carrera agregada');
     }
 
     /**
@@ -97,13 +105,21 @@ class carrerasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $campos= [
+            'nombreCarrera' => 'required|string|max:50',
+            'nombreAbreviado' => 'required|string|max:6',
+            'idDepto' => 'required|integer'
+        ];
+
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         $carrera = carrera::findOrFail($id);
         $carrera->update($requestData);
 
-        return redirect('carreras')->with('flash_message', 'carrera updated!');
+        return redirect('carreras')->with('flash_message', 'Carrera actualizada');
     }
 
     /**
@@ -117,6 +133,6 @@ class carrerasController extends Controller
     {
         carrera::destroy($id);
 
-        return redirect('carreras')->with('flash_message', 'carrera deleted!');
+        return redirect('carreras')->with('flash_message', 'Carrera eliminada');
     }
 }
