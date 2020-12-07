@@ -50,12 +50,18 @@ class departamentosController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $campos = [
+            'Nombre' => 'required|string|max:50',
+            'Tipo' => 'required|string|max:3'
+        ];
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         departamento::create($requestData);
 
-        return redirect('departamentos')->with('flash_message', 'departamento added!');
+        return redirect('departamentos')->with('flash_message', 'Departamento agregado');
     }
 
     /**
@@ -96,13 +102,19 @@ class departamentosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $campos = [
+            'Nombre' => 'required|string|max:50',
+            'Tipo' => 'required|string|max:3'
+        ];
+        $mensaje = ["required"=>'El campo de :attribute es requerido'];
+        $this->validate($request,$campos,$mensaje);
+
         $requestData = $request->all();
-        
+
         $departamento = departamento::findOrFail($id);
         $departamento->update($requestData);
 
-        return redirect('departamentos')->with('flash_message', 'departamento updated!');
+        return redirect('departamentos')->with('flash_message', 'Departamento actualizado');
     }
 
     /**
@@ -116,6 +128,6 @@ class departamentosController extends Controller
     {
         departamento::destroy($id);
 
-        return redirect('departamentos')->with('flash_message', 'departamento deleted!');
+        return redirect('departamentos')->with('flash_message', 'Departamento eliminado');
     }
 }
