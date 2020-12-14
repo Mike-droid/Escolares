@@ -14,7 +14,17 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <nav class="nav justify-content-center">
+                        <a class="nav-link" href="alumnos">Alumnos</a>
+                        <a class="nav-link" href="carreras">Carreras</a>
+                        <a class="nav-link" href="departamentos">Departamentos</a>
+                        <a class="nav-link" href="grupos">Grupos</a>
+                        <a class="nav-link" href="horarios">Horarios</a>
+                        <a class="nav-link" href="materias">Materias</a>
+                        <a class="nav-link" href="periodos">Periodos</a>
+                        <a class="nav-link" href="personales">Personales</a>
+                        <a class="nav-link" href="reticulas">Retículas</a>
+                    </nav>
                 </div>
             </div>
         </div>
