@@ -15,3 +15,6 @@ Route::resource('materias', 'App\Http\Controllers\materiasController');
 Route::resource('periodos', 'App\Http\Controllers\periodosController');
 Route::resource('grupos', 'App\Http\Controllers\gruposController');
 Route::resource('horarios', 'App\Http\Controllers\horariosController');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
