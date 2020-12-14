@@ -43,13 +43,13 @@
                                         <td>{{ $item->FechaInicio }}</td>
                                         <td>{{ $item->FechaFinal }}</td>
                                         <td>
-                                            <a href="{{ url('/periodos/' . $item->id) }}" title="View periodo"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/periodos/' . $item->id . '/edit') }}" title="Edit periodo"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/periodos/' . $item->id) }}" title="View periodo"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver</button></a>
+                                            <a href="{{ url('/periodos/' . $item->id . '/edit') }}" title="Edit periodo"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>
 
                                             <form method="POST" action="{{ url('/periodos' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete periodo" onclick="return confirm(&quot;¿Está seguro/a de querer borrar este registro PERMANENTEMENTE?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete periodo" onclick="return confirm(&quot;¿Está seguro/a de querer borrar este registro PERMANENTEMENTE?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Borrar</button>
                                             </form>
                                         </td>
                                     </tr>
