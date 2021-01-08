@@ -50,7 +50,9 @@
                                     <tr>
                                         <th> ID Departamento </th>
                                         {{$departamento = departamento::all()}}
-                                        <td> {{ $departamento->Nombre }} </td>
+                                        @foreach ($departamento as $d)
+                                        <td> {{ $d->Nombre }} </td>
+                                        @endforeach
                                     </tr>
                                 </tbody>
                             </table>
