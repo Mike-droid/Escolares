@@ -49,8 +49,7 @@
                                     </tr>
                                     <tr>
                                         <th> Retícula </th>
-                                        {{$reticula = reticula::all()}}
-                                        <td> {{ $reticula->DescripcionReticula }} </td>
+                                        <td> {{ $materia->idReticula }} </td>
                                     </tr>
                                 </tbody>
                             </table>

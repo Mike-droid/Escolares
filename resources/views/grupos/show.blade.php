@@ -46,7 +46,7 @@
                                     <tr>
                                         <th> RFC Docente </th>
                                         {{$personal = personale::all()}}
-                                        <td> {{ $personal->Nombre . ' ' . $personal->apellidoPaterno . ' ' . $personal->apellidoMaterno }} </td>
+                                        <td> {{ $grupo->rfcDocente }} </td>
                                     </tr>
                                     <tr>
                                         <th> ID periodo </th>
