@@ -1,3 +1,7 @@
+<?php
+    use App\Models\reticula;
+?>
+
 @extends('layouts.app')
 
 @section('content')
@@ -44,8 +48,9 @@
                                         <td> {{ $materia->creditos }} </td>
                                     </tr>
                                     <tr>
-                                        <th> ID retícula </th>
-                                        <td> {{ $materia->idReticula }} </td>
+                                        <th> Retícula </th>
+                                        {{$reticula = reticula::all()}}
+                                        <td> {{ $reticula->DescripcionReticula }} </td>
                                     </tr>
                                 </tbody>
                             </table>

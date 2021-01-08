@@ -19,7 +19,7 @@
 </div>
 <div class="form-group {{ $errors->has('creditos') ? 'has-error' : ''}}">
     <label for="creditos" class="control-label">{{ 'Créditos' }}</label>
-    <input class="form-control" name="creditos" type="number" id="creditos" value="{{ isset($materia->creditos) ? $materia->creditos : ''}}" >
+    <input class="form-control" name="creditos" type="number" min="1" id="creditos" value="{{ isset($materia->creditos) ? $materia->creditos : ''}}" >
     {!! $errors->first('creditos', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('idReticula') ? 'has-error' : ''}}">

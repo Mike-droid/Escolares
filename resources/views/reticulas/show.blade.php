@@ -1,3 +1,7 @@
+<?php
+    use App\Models\carrera;
+?>
+
 @extends('layouts.app')
 
 @section('content')
@@ -37,7 +41,8 @@
                                     </tr>
                                     <tr>
                                         <th> ID carrera </th>
-                                        <td> {{ $reticula->idCarrera }} </td>
+                                        {{$carrera = carrera::all()}}
+                                        <td> {{ $carrera->nombreCarrera }} </td>
                                     </tr>
                                 </tbody>
                             </table>

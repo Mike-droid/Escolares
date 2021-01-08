@@ -23,7 +23,7 @@
     <select name="rfcDocente" id="rfcDocente" class="form-control">
         {{$personal = personale::all()}}
         @foreach ($personal as $p)
-            <option value="{{$p->id}}">{{$p->Nombre . $p->apellidoPaterno . $p->apellidoMaterno}}</option>
+            <option value="{{$p->id}}">{{$p->Nombre . ' ' . $p->apellidoPaterno . ' ' . $p->apellidoMaterno}}</option>
         @endforeach
     </select>
 </div>

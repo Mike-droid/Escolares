@@ -1,3 +1,7 @@
+<?php
+    use App\Models\departamento;
+?>
+
 @extends('layouts.app')
 
 @section('content')
@@ -45,7 +49,8 @@
                                     </tr>
                                     <tr>
                                         <th> ID Departamento </th>
-                                        <td> {{ $personale->ipDepto }} </td>
+                                        {{$departamento = departamento::all()}}
+                                        <td> {{ $departamento->Nombre }} </td>
                                     </tr>
                                 </tbody>
                             </table>

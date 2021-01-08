@@ -1,3 +1,8 @@
+<?php
+    use App\Models\periodo;
+    use App\Models\personale;
+?>
+
 @extends('layouts.app')
 
 @section('content')
@@ -40,7 +45,8 @@
                                     </tr>
                                     <tr>
                                         <th> RFC Docente </th>
-                                        <td> {{ $grupo->rfcDocente }} </td>
+                                        {{$personal = personale::all()}}
+                                        <td> {{ $personal->Nombre . ' ' . $personal->apellidoPaterno . ' ' . $personal->apellidoMaterno }} </td>
                                     </tr>
                                     <tr>
                                         <th> ID periodo </th>
