@@ -10,7 +10,7 @@
                     <div class="card-header">Enlaces</div>
 
                     <div class="card-body">
-                        Your application's dashboard.
+                        Las secciones de la página
                     </div>
                 </div>
             </div>
