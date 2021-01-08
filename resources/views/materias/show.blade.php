@@ -1,7 +1,3 @@
-<?php
-    use App\Models\reticula;
-?>
-
 @extends('layouts.app')
 
 @section('content')

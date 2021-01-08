@@ -1,8 +1,3 @@
-<?php
-    use App\Models\periodo;
-    use App\Models\personale;
-?>
-
 @extends('layouts.app')
 
 @section('content')
@@ -45,7 +40,6 @@
                                     </tr>
                                     <tr>
                                         <th> RFC Docente </th>
-                                        {{$personal = personale::all()}}
                                         <td> {{ $grupo->rfcDocente }} </td>
                                     </tr>
                                     <tr>
