@@ -23,11 +23,11 @@
     {!! $errors->first('creditos', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('idReticula') ? 'has-error' : ''}}">
-    <label for="idReticula" class="control-label">{{ 'ID retícula' }}</label>
+    <label for="idReticula" class="control-label">{{ 'Retícula' }}</label>
     <select name="idReticula" id="idReticula" class="form-control">
         {{$reticula = reticula::all()}}
         @foreach ($reticula as $r)
-        <option value="{{$r->id}}">{{$r->id}}</option>
+        <option value="{{$r->id}}">{{$r->DescripcionReticula}}</option>
         @endforeach
     </select>
 </div>

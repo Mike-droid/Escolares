@@ -4,7 +4,7 @@
 
 <div class="form-group {{ $errors->has('Semestre') ? 'has-error' : ''}}">
     <label for="Semestre" class="control-label">{{ 'Semestre' }}</label>
-    <input class="form-control" name="Semestre" type="number" id="Semestre" value="{{ isset($horario->Semestre) ? $horario->Semestre : ''}}" >
+    <input class="form-control" name="Semestre" type="number" min="1" max="12" id="Semestre" value="{{ isset($horario->Semestre) ? $horario->Semestre : ''}}" >
     {!! $errors->first('Semestre', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('noCtrl') ? 'has-error' : ''}}">
