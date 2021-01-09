@@ -1,7 +1,9 @@
 <div class="form-group {{ $errors->has('noCtrl') ? 'has-error' : ''}}">
     <label for="noCtrl" class="control-label">{{ 'Número de control' }}</label>
     @if ($formMode == 'edit')
-    <input class="form-control" name="noCtrl" type="text" id="noCtrl" disabled value="{{ isset($alumno->noCtrl) ? $alumno->noCtrl : ''}}" >
+    <label for="noCtrl" value="{{ isset($alumno->noCtrl) ? $alumno->noCtrl : ''}}">
+        {{ isset($alumno->noCtrl) ? $alumno->noCtrl : ''}}
+    </label>
     @else
     <input class="form-control" name="noCtrl" type="text" id="noCtrl" value="{{ isset($alumno->noCtrl) ? $alumno->noCtrl : ''}}" >
     @endif

@@ -5,7 +5,9 @@
 <div class="form-group {{ $errors->has('RFC') ? 'has-error' : ''}}">
     <label for="RFC" class="control-label">{{ 'RFC' }}</label>
     @if ($formMode == 'edit')
-    <input class="form-control" name="RFC" type="text" id="RFC" disabled value="{{ isset($personale->RFC) ? $personale->RFC : ''}}" >
+    <label for="RFC" value="{{ isset($personale->RFC) ? $personale->RFC : ''}}">
+        {{ isset($personale->RFC) ? $personale->RFC : ''}}
+    </label>
     @else
     <input class="form-control" name="RFC" type="text" id="RFC" value="{{ isset($personale->RFC) ? $personale->RFC : ''}}" >
     @endif
