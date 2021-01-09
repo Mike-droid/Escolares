@@ -46,11 +46,11 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                            <!-----------@if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ url('/register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif ------------->
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -60,7 +60,7 @@
                                     <a class="dropdown-item" href="{{ url('/logout') }}"
                                         onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Cerrar sesión') }}
                                     </a>
                                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" class="d-none">
                                         @csrf
