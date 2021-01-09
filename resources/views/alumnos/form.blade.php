@@ -4,8 +4,8 @@
     <input class="form-control" name="noCtrl" type="text" id="noCtrl" disabled value="{{ isset($alumno->noCtrl) ? $alumno->noCtrl : ''}}" >
     @else
     <input class="form-control" name="noCtrl" type="text" id="noCtrl" value="{{ isset($alumno->noCtrl) ? $alumno->noCtrl : ''}}" >
-    {!! $errors->first('noCtrl', '<p class="help-block">:message</p>') !!}
     @endif
+    {!! $errors->first('noCtrl', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('Nombre') ? 'has-error' : ''}}">
     <label for="Nombre" class="control-label">{{ 'Nombre' }}</label>

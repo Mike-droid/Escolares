@@ -8,8 +8,8 @@
     <input class="form-control" name="RFC" type="text" id="RFC" disabled value="{{ isset($personale->RFC) ? $personale->RFC : ''}}" >
     @else
     <input class="form-control" name="RFC" type="text" id="RFC" value="{{ isset($personale->RFC) ? $personale->RFC : ''}}" >
-    {!! $errors->first('RFC', '<p class="help-block">:message</p>') !!}
     @endif
+    {!! $errors->first('RFC', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('Nombre') ? 'has-error' : ''}}">
     <label for="Nombre" class="control-label">{{ 'Nombre' }}</label>
