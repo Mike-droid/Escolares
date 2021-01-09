@@ -1,12 +1,6 @@
 <div class="form-group {{ $errors->has('noCtrl') ? 'has-error' : ''}}">
     <label for="noCtrl" class="control-label">{{ 'Número de control' }}</label>
-    @if ($formMode == 'edit')
-    <label for="noCtrl" value="{{ isset($alumno->noCtrl) ? $alumno->noCtrl : ''}}">
-        {{ isset($alumno->noCtrl) ? $alumno->noCtrl : ''}}
-    </label>
-    @else
     <input class="form-control" name="noCtrl" type="text" id="noCtrl" value="{{ isset($alumno->noCtrl) ? $alumno->noCtrl : ''}}" >
-    @endif
     {!! $errors->first('noCtrl', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('Nombre') ? 'has-error' : ''}}">

@@ -4,13 +4,7 @@
 
 <div class="form-group {{ $errors->has('RFC') ? 'has-error' : ''}}">
     <label for="RFC" class="control-label">{{ 'RFC' }}</label>
-    @if ($formMode == 'edit')
-    <label for="RFC" value="{{ isset($personale->RFC) ? $personale->RFC : ''}}">
-        {{ isset($personale->RFC) ? $personale->RFC : ''}}
-    </label>
-    @else
     <input class="form-control" name="RFC" type="text" id="RFC" value="{{ isset($personale->RFC) ? $personale->RFC : ''}}" >
-    @endif
     {!! $errors->first('RFC', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('Nombre') ? 'has-error' : ''}}">
