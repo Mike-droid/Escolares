@@ -15,7 +15,7 @@
 </div>
 <div class="form-group {{ $errors->has('capacidadMaxima') ? 'has-error' : ''}}">
     <label for="capacidadMaxima" class="control-label">{{ 'Capacidad máxima' }}</label>
-    <input class="form-control" name="capacidadMaxima" type="number" id="capacidadMaxima" value="{{ isset($grupo->capacidadMaxima) ? $grupo->capacidadMaxima : ''}}" >
+    <input class="form-control" name="capacidadMaxima" type="number" min="1" id="capacidadMaxima" value="{{ isset($grupo->capacidadMaxima) ? $grupo->capacidadMaxima : ''}}" >
     {!! $errors->first('capacidadMaxima', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('rfcDocente') ? 'has-error' : ''}}">

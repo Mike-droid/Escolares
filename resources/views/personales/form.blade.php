@@ -2,11 +2,14 @@
     use App\Models\departamento;
 ?>
 
-
 <div class="form-group {{ $errors->has('RFC') ? 'has-error' : ''}}">
     <label for="RFC" class="control-label">{{ 'RFC' }}</label>
+    @if ($formMode == 'edit')
+        <label for="RFC">{{ isset($personale->RFC) ? $personale->RFC : ''}}</label>
+    @else
     <input class="form-control" name="RFC" type="text" id="RFC" value="{{ isset($personale->RFC) ? $personale->RFC : ''}}" >
     {!! $errors->first('RFC', '<p class="help-block">:message</p>') !!}
+    @endif
 </div>
 <div class="form-group {{ $errors->has('Nombre') ? 'has-error' : ''}}">
     <label for="Nombre" class="control-label">{{ 'Nombre' }}</label>
